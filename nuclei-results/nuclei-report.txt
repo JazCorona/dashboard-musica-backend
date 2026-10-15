@@ -1,0 +1,14 @@
+[swagger-api] [http] [info] http://dashboard-backend:8001/docs [paths="/docs"]
+[openapi] [http] [info] http://dashboard-backend:8001/openapi.json
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:strict-transport-security] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:content-security-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:x-frame-options] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:x-content-type-options] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:permissions-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:referrer-policy] [http] [info] http://dashboard-backend:8001
+[tech-detect:uvicorn] [http] [info] http://dashboard-backend:8001
+[redoc-api-docs] [http] [info] http://dashboard-backend:8001/redoc

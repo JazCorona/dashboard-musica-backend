@@ -1,0 +1,8 @@
+[credentials-disclosure-file] [file] [unknown] /src/.git/hooks/fsmonitor-watchman.sample ["update_token ="]
+[credentials-disclosure-file] [file] [unknown] /src/README.md ["TOKEN=","password="]
+[credentials-disclosure-file] [file] [unknown] /src/app/main.py ["creds:","auth_header =","token =","key =","key:","token:"]
+[credentials-disclosure-file] [file] [unknown] /src/nuclei-results/nuclei-file-report.txt ["update_token =","TOKEN=","password=","creds:","auth_header =","token =","key =","key:","token:"]
+[credentials-disclosure-file] [file] [unknown] /src/nuclei-results/nuclei-file-scan.log ["update_token =","TOKEN=","password=","token:","creds:","auth_header =","token =","key =","key:"]
+[nodejs-framework-exceptions:exception] [file] [info] /src/nuclei-results/markdown/openapi-dashboard-backend-09063747-9670-499e-8428-0a40cd9c2fe9.md ["ValidationError"]
+[nodejs-framework-exceptions:exception] [file] [info] /src/nuclei-results/nuclei-report.jsonl ["ValidationError"]
+[dom-invader-xss:sink] [file] [high] /src/app/main.py ["fetch"]

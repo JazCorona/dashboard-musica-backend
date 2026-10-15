@@ -1,0 +1,39 @@
+﻿System.Management.Automation.RemoteException
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.11.1
+System.Management.Automation.RemoteException
+		projectdiscovery.io
+System.Management.Automation.RemoteException
+[INF] Current nuclei version: v3.11.1 (unknown) - remove '-duc' flag to enable update checks
+[INF] Current nuclei-templates version: v10.5.0 (unknown) - remove '-duc' flag to enable update checks
+[INF] New templates added in latest release: 295
+[INF] Templates loaded for current scan: 11144
+[INF] Executing 11144 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 1
+[INF] Templates clustered: 2724 (Reduced 2588 Requests)
+[INF] Using Interactsh Server: oast.live
+[0:00:30] | Templates: 11144 | Hosts: 1 | RPS: 204 | Matched: 0 | Errors: 12 | Requests: 6186/20581 (30%)
+[swagger-api] [http] [info] http://dashboard-backend:8001/docs [paths="/docs"]
+[0:01:00] | Templates: 11144 | Hosts: 1 | RPS: 198 | Matched: 1 | Errors: 23 | Requests: 11979/20581 (58%)
+[openapi] [http] [info] http://dashboard-backend:8001/openapi.json
+[0:01:30] | Templates: 11144 | Hosts: 1 | RPS: 167 | Matched: 2 | Errors: 65 | Requests: 15100/20581 (73%)
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:strict-transport-security] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:content-security-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:x-frame-options] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:x-content-type-options] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:permissions-policy] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://dashboard-backend:8001
+[http-missing-security-headers:referrer-policy] [http] [info] http://dashboard-backend:8001
+[tech-detect:uvicorn] [http] [info] http://dashboard-backend:8001
+[0:02:00] | Templates: 11144 | Hosts: 1 | RPS: 163 | Matched: 13 | Errors: 81 | Requests: 19604/20581 (95%)
+[redoc-api-docs] [http] [info] http://dashboard-backend:8001/redoc
+[0:02:19] | Templates: 11144 | Hosts: 1 | RPS: 147 | Matched: 14 | Errors: 232 | Requests: 20544/20581 (99%)
+[INF] Scan completed in 2m. 14 matches found.
+[INF] HTTP connections: 13845 total, 3478 new, 10367 reused (74.9%)
+[0:02:19] | Templates: 11144 | Hosts: 1 | RPS: 147 | Matched: 14 | Errors: 232 | Requests: 20544/20581 (99%)

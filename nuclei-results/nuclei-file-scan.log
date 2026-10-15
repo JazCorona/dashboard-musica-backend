@@ -1,0 +1,26 @@
+﻿System.Management.Automation.RemoteException
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.11.1
+System.Management.Automation.RemoteException
+		projectdiscovery.io
+System.Management.Automation.RemoteException
+[INF] Current nuclei version: v3.11.1 (unknown) - remove '-duc' flag to enable update checks
+[INF] Current nuclei-templates version: v10.5.0 (unknown) - remove '-duc' flag to enable update checks
+[INF] New templates added in latest release: 295
+[INF] Templates loaded for current scan: 447
+[INF] Executing 447 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 1
+[credentials-disclosure-file] [file] [unknown] /src/.git/hooks/fsmonitor-watchman.sample ["update_token ="]
+[credentials-disclosure-file] [file] [unknown] /src/README.md ["TOKEN=","password="]
+[credentials-disclosure-file] [file] [unknown] /src/app/main.py ["creds:","auth_header =","token =","key =","key:","token:"]
+[credentials-disclosure-file] [file] [unknown] /src/nuclei-results/nuclei-file-report.txt ["update_token =","TOKEN=","password=","creds:","auth_header =","token =","key =","key:","token:"]
+[credentials-disclosure-file] [file] [unknown] /src/nuclei-results/nuclei-file-scan.log ["update_token =","TOKEN=","password=","token:","creds:","auth_header =","token =","key =","key:"]
+[nodejs-framework-exceptions:exception] [file] [info] /src/nuclei-results/markdown/openapi-dashboard-backend-09063747-9670-499e-8428-0a40cd9c2fe9.md ["ValidationError"]
+[nodejs-framework-exceptions:exception] [file] [info] /src/nuclei-results/nuclei-report.jsonl ["ValidationError"]
+[dom-invader-xss:sink] [file] [high] /src/app/main.py ["fetch"]
+[0:00:11] | Templates: 447 | Hosts: 1 | RPS: 1894 | Matched: 8 | Errors: 0 | Requests: 21778/21778 (100%)
+[INF] Scan completed in 11.492965387s. 8 matches found.
+[0:00:12] | Templates: 447 | Hosts: 1 | RPS: 1893 | Matched: 8 | Errors: 0 | Requests: 21778/21778 (100%)

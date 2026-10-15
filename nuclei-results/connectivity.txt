@@ -1,0 +1,2 @@
+﻿Conectividad desde un contenedor en la red 'ldap-keycloak-oauth2-lab_auth-network' - 2026-10-14T23:52:42
+http://dashboard-backend:8001 -> HTTP 404
