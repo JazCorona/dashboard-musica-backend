@@ -37,3 +37,21 @@ git add .
 git commit -m "Backend dashboard musica clasica con validacion JWT"
 gh repo create <TU-USUARIO>/dashboard-musica-backend --public --source=. --push
 ```
+
+## Análisis de seguridad con Nuclei
+Escaneo realizado el 2026-10-14 con **Nuclei v3.11.1** (templates v10.5.0, 11,144 templates).
+El backend corrió en un contenedor dentro de la red Docker del lab LDAP/Keycloak, y Nuclei se ejecutó
+en otro contenedor conectado a esa misma red (`http://dashboard-backend:8001`). También se escaneó el
+código fuente con los templates `file/`.
+
+Resultados completos: [`nuclei-results/`](nuclei-results/) · Triage: [`nuclei-results/RESUMEN.md`](nuclei-results/RESUMEN.md)
+
+| Severidad | Hallazgo |
+|---|---|
+| Info | Swagger `/docs`, ReDoc `/redoc` y `/openapi.json` públicos |
+| Info | Faltan 10 headers de seguridad (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP, COEP, CORP, X-Permitted-Cross-Domain-Policies) |
+| Info | Se revela la tecnología del servidor (`server: uvicorn`) |
+| Código | Se imprime el header `Authorization` y parte del JWT en los logs (`app/main.py`) |
+| Código | Credenciales de ejemplo en el README |
+
+Hay falsos positivos documentados en el resumen, por ejemplo `dom-invader-xss` sobre código Python.
