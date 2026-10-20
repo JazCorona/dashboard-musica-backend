@@ -16,7 +16,9 @@ COPY security/nginx.conf             /etc/nginx/nginx.conf
 COPY security/jail.local             /etc/fail2ban/jail.local
 COPY security/filter-http-flood.conf /etc/fail2ban/filter.d/http-flood.conf
 COPY security/entrypoint.sh          /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Normaliza finales de línea (si se clonó en Windows el script trae CRLF y el
+# shebang falla con "no such file or directory").
+RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 
 # El puerto público lo sirve Nginx (uvicorn queda en 127.0.0.1:9001).
 EXPOSE 8001
