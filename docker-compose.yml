@@ -1,0 +1,33 @@
+# Backend protegido con Nginx + Fail2Ban.
+#
+# cap_add NET_ADMIN/NET_RAW es OBLIGATORIO: Fail2Ban banea con iptables dentro
+# del contenedor y sin esas capabilities no puede crear las reglas.
+#
+# La red 'labnet' se declara external para que el contenedor del script de DDoS
+# (repo aparte) pueda unirse a la MISMA red y así Nginx vea la IP real del
+# atacante (y Fail2Ban la banee). Si corres el backend solo, cambia la red por
+# un simple 'driver: bridge' (ver comentario al final).
+services:
+  backend:
+    build: .
+    image: dashboard-backend-protected
+    container_name: dashboard-backend-protected
+    ports:
+      - "8001:8001"          # Nginx + Fail2Ban al frente
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      KEYCLOAK_INTERNAL: http://keycloak:8080
+      KEYCLOAK_PUBLIC:   http://localhost:8081
+      KEYCLOAK_REALM:    cybersecurity
+      KEYCLOAK_CLIENT_ID: fastapi-api
+    networks: [labnet]
+
+networks:
+  labnet:
+    name: labnet
+    driver: bridge
+    # Para integrarlo con el lab LDAP/Keycloak y el atacante, puedes marcarla
+    # external y crearla una vez con: docker network create labnet
+    # external: true

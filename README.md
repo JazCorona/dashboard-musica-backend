@@ -55,3 +55,30 @@ Resultados completos: [`nuclei-results/`](nuclei-results/) · Triage: [`nuclei-r
 | Código | Credenciales de ejemplo en el README |
 
 Hay falsos positivos documentados en el resumen, por ejemplo `dom-invader-xss` sobre código Python.
+
+---
+
+## Seguridad: Fail2Ban contra HTTP-flood (actividad DDoS)
+
+La imagen ahora corre **Nginx como reverse proxy + Fail2Ban** al frente del
+uvicorn (que queda en `127.0.0.1:9001`). Nginx escribe `access.log` y el jail
+`http-flood` banea con `iptables-allports` a la IP que supere el umbral.
+
+- Config: carpeta [`security/`](security/) (`nginx.conf`, `jail.local`,
+  `filter-http-flood.conf`, `entrypoint.sh`).
+- Umbral: `maxretry=60` en `findtime=10s` (~6 req/s sostenidas → ban).
+
+```bash
+docker compose up --build        # levanta el backend protegido en :8001
+# estado del jail / baneos:
+docker compose exec backend fail2ban-client status http-flood
+docker compose exec backend iptables -S | grep f2b
+```
+
+La prueba de carga vive en el repo aparte **dashboard-musica-ddos**:
+```bash
+python flood.py 127.0.0.1 8001 --rate 120 --duration 15
+python sweep.py 127.0.0.1 8001 --out resultados-backend.txt   # halla el máximo sostenible
+```
+> **Nota:** `cap_add: [NET_ADMIN, NET_RAW]` es obligatorio (ya está en el compose)
+> para que Fail2Ban pueda crear las reglas iptables dentro del contenedor.
